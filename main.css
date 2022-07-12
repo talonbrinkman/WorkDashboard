@@ -20,9 +20,11 @@ body{
 }
 #moneyRate{
   font-size: 100%;
+  color: #2e2e2e;
 }
 #afterTax{
   font-size: 100%;
+  color: #2e2e2e;
 }
 .inputs{
   width: fit-content;
@@ -35,17 +37,28 @@ body{
   border-radius: 30px;
 }
 .slider{
+  transition: 0.5s;
   display: inline-block;
   -webkit-appearance: none;
   background: #2e2e2e;
   min-width: 200px;
 }
-.slider::-webkit-slider-thumb {
+.slider::-webkit-slider-thumb{
+  transition: 0.5s;
   -webkit-appearance: none;
   appearance: none;
   width: 25px;
   height: 25px;
   border-radius: 100%;
   background: #f2a900;
+  cursor: pointer;
+}
+.slider:hover{
+  transition: 0.5s;
+  background: #242323;
+  box-shadow: 1px 1px 15px 1px #f2a900;
+}
+.slider::-webkit-slider-thumb:hover{
+  transition: 0.5s;
   cursor: pointer;
 }

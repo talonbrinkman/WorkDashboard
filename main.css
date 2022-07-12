@@ -25,9 +25,8 @@ body{
   font-size: 100%;
 }
 .inputs{
-  width: 100%;
+  width: fit-content;
   margin: 0 auto;
-  text-align: center;
 }
 .inputs input{
   background-color: #101010;
@@ -36,8 +35,10 @@ body{
   border-radius: 30px;
 }
 .slider{
+  display: inline-block;
   -webkit-appearance: none;
   background: #2e2e2e;
+  min-width: 200px;
 }
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;

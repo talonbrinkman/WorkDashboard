@@ -4,7 +4,9 @@
   font-family: 'Titillium Web', sans-serif;
 }
 body{
-  background-color: #101010;
+  height: 100vh;
+  background-image: linear-gradient(to bottom right, #101010, #2e2e2e);
+  background-repeat: no-repeat;
   color: #f2a900;
 }
 .money{
@@ -30,12 +32,11 @@ body{
 .inputs input{
   background-color: #101010;
   color: #f2a900;
-  border: 3px solid #f2a900;
+  background: #2e2e2e;
   border-radius: 30px;
 }
 .slider{
   -webkit-appearance: none;
-  border: 0;
   background: #2e2e2e;
 }
 .slider::-webkit-slider-thumb {

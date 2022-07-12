@@ -33,7 +33,7 @@
 
         let moneyRounded = money.toFixed(document.getElementById("decimalPlaces").value);
         let moneyAfterTaxRounded = afterTax.toFixed(document.getElementById("decimalPlaces").value);
-        
+
         document.getElementById("hour").max = today.getHours();
         document.getElementById("moneyMade").innerHTML = "$" + moneyRounded;
         document.getElementById("afterTax").innerHTML = "$" + moneyAfterTaxRounded;

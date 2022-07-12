@@ -1,0 +1,49 @@
+*{
+  margin: 0;
+  text-decoration: none;
+  font-family: 'Titillium Web', sans-serif;
+}
+body{
+  background-color: #101010;
+  color: #f2a900;
+}
+.money{
+  width: 100%;
+  margin: 8px auto;
+  text-align: center;
+}
+.money h1{
+  display: inline-block;
+  font-size: 250%;
+}
+#moneyRate{
+  font-size: 100%;
+}
+#afterTax{
+  font-size: 100%;
+}
+.inputs{
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.inputs input{
+  background-color: #101010;
+  color: #f2a900;
+  border: 3px solid #f2a900;
+  border-radius: 30px;
+}
+.slider{
+  -webkit-appearance: none;
+  border: 0;
+  background: #2e2e2e;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  background: #f2a900;
+  cursor: pointer;
+}

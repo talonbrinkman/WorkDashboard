@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Money Made</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="money">
+      <h1 id="moneyMade">$0.00</h1><h1 id="moneyRate">0/hr</h1>
+      <br>
+      <h1 id="afterTax">$0.00</h1>
+    </div>
+    <div class="inputs">
+      <input class="slider" id="hour" type="range" value="8" min="1" oninput="this.nextElementSibling.value = this.value">
+      <output id="hourStarted">8</output>
+      <input class="slider" type="range" value="18" min="0" max="60" oninput="this.nextElementSibling.value = this.value">
+      <output id="hourlyRate">18</output>
+      <input class="slider" type="range" value="3" min="0" max="10" oninput="this.nextElementSibling.value = this.value">
+      <output id="decimalPlaces">3</output>
+    </div>
+    <script>
+      setInterval(function calcTime(){
+        var today= new Date();
+        var hours = today.getHours() - document.getElementById("hourStarted").value;
+        var mins = today.getMinutes();
+        var sec = today.getSeconds();
+
+        var money = ((hours + (mins/60) + (sec/3600))*document.getElementById("hourlyRate").value);
+        var afterTax = money * 0.9;
+
+        let moneyRounded = money.toFixed(document.getElementById("decimalPlaces").value);
+        let moneyAfterTaxRounded = afterTax.toFixed(document.getElementById("decimalPlaces").value);
+        
+        document.getElementById("hour").max = today.getHours();
+        document.getElementById("moneyMade").innerHTML = "$" + moneyRounded;
+        document.getElementById("afterTax").innerHTML = "$" + moneyAfterTaxRounded;
+        document.getElementById("moneyRate").innerHTML = document.getElementById("hourlyRate").value + "/hr";
+      }, 50);
+    </script>
+  </body>
+</html>

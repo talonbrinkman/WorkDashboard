@@ -46,7 +46,7 @@ body{
 }
 .money h1{
   display: inline-block;
-  font-size: 250%;
+  font-size: 200%
 }
 #moneyRate{
   font-size: 100%;
@@ -103,4 +103,8 @@ body{
 }
 .TimeLeftTool:hover{
   box-shadow: 0px 0px 20px 1px #f2a900;
+}
+#timeLeft{
+  display: inline-block;
+  font-size: 200%;
 }

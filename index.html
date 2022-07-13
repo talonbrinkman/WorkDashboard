@@ -8,33 +8,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div class="MoneyMadeTool">
-      <div class="money">
-        <h1 id="moneyMade">$0.00</h1><h1 id="moneyRate">0/hr</h1>
-        <br>
-        <h1 id="afterTax">$0.00</h1>
-      </div>
-      <div class="inputs">
-        Start Time
-        <div>
-          <input class="slider" id="hour" type="range" value="8" min="1" oninput="this.nextElementSibling.value = this.value"><output id="hourStarted">8</output></input>
-        </div>
-        Hourly Rate
-        <div>
-          <input class="slider" type="range" value="18" min="0" max="60" oninput="this.nextElementSibling.value = this.value"><output id="hourlyRate">18</output></input>
-        </div>
-        Decimal Places
-        <div>
-          <input class="slider" type="range" value="3" min="0" max="20" oninput="this.nextElementSibling.value = this.value"><output id="decimalPlaces">3</output></input>
-        </div>
-      </div>
+    <div class="header">
+      <h1>Work Dashboard</h1>
     </div>
-    <div class="TimeLeftTool">
-      <input type="time" id="appt" name="appt"
-       min="8:00" max="17:00" required>
+    <div class="grid_container">
+      <div class="MoneyMadeTool">
+        <div class="money">
+          <h1 id="moneyMade">$0.00</h1><h1 id="moneyRate">0/hr</h1>
+          <br>
+          <h1 id="afterTax">$0.00</h1>
+        </div>
+        <div class="inputs">
+          Start Time
+          <div>
+            <input class="slider" id="hour" type="range" value="8" min="1" oninput="this.nextElementSibling.value = this.value"><output id="hourStarted">8</output></input>
+          </div>
+          Hourly Rate
+          <div>
+            <input class="slider" type="range" value="18" min="0" max="60" oninput="this.nextElementSibling.value = this.value"><output id="hourlyRate">18</output></input>
+          </div>
+          Decimal Places
+          <div>
+            <input class="slider" type="range" value="3" min="0" max="20" oninput="this.nextElementSibling.value = this.value"><output id="decimalPlaces">3</output></input>
+          </div>
+        </div>
+      </div>
+      <div class="TimeLeftTool">
+        <h1 id="timeLeft">00:00:00</h1>
+        <div class="inputs">
+          Hour
+          <div>
+            <input class="slider" id="endHour" type="range" value="16" min="1" max="24" oninput="this.nextElementSibling.value = this.value"><output id="hourStarted">16</output></input>
+          </div>
+          Minutes
+          <div>
+            <input class="slider" id="endMinutes" type="range" value="0" min="0" max="59" oninput="this.nextElementSibling.value = this.value"><output id="hourStarted">0</output></input>
+          </div>
+        </div>
+      </div>
     </div>
     <script>
-      setInterval(function calcTime(){
+      setInterval(function calcMoney(){
         var today= new Date();
         var hours = today.getHours() - document.getElementById("hourStarted").value;
         var mins = today.getMinutes();
@@ -50,6 +64,17 @@
         document.getElementById("moneyMade").innerHTML = "$" + moneyRounded;
         document.getElementById("afterTax").innerHTML = "$" + moneyAfterTaxRounded;
         document.getElementById("moneyRate").innerHTML = document.getElementById("hourlyRate").value + "/hr";
+
+        var date = new Date().getDate();
+        var countDownDate = new Date("Jul " + date + ", 2022 " + parseInt(document.getElementById("endHour").value)
+        + ":" + parseInt(document.getElementById("endMinutes").value) + ":00").getTime();
+        var now = new Date().getTime();
+        var timeleft = countDownDate - now;
+
+        var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+        document.getElementById("timeLeft").innerHTML = hours + ":" + minutes + ":" + seconds;
       }, 50);
     </script>
   </body>

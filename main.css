@@ -248,3 +248,17 @@ footer .socials{
   background: #eb4949;
   border-radius: 10px;
 }
+.PortfolioTool{
+  transition: 0.5s;
+  width: auto;
+  border: 2px solid #eb4949;
+  border-radius: 20px;
+  padding: 8px;
+  text-align: center;
+}
+.PortfolioTool:hover{
+  box-shadow: 0px 0px 20px 1px #eb4949;
+}
+.PortfolioTool .chart{
+  height: 85%;
+}

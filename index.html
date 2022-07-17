@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <script src="https://kit.fontawesome.com/56a1441670.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   </head>
   <body>
     <header>
@@ -46,12 +47,15 @@
           <input class="slider" id="endMinutes" type="range" value="0" min="0" max="59"></input>
         </div>
       </div>
-      <div class="TimeLeftTool" id="ToBeDetermined">
+      <div class="PortfolioTool" id="PortfolioTool">
         <div class="panelName">
-          <h1>To Be Determined</h1>
+          <h1>PortfolioTool</h1>
           <i class="fa-solid fa-gear"></i>
-          <i class="fa-solid fa-trash" id="ToBeDetermined" onclick="removeItem(this.id)"></i>
+          <i class="fa-solid fa-trash" id="PortfolioTool" onclick="removeItem(this.id)"></i>
           <i class="fa-solid fa-pen-to-square"></i>
+        </div>
+        <div class="chart">
+          <canvas id="myChart"></canvas>
         </div>
       </div>
       <div class="ToDoListTool" id="ToDoListTool">
@@ -70,6 +74,22 @@
       </div>
     </div>
     <script>
+      var xValues = [50,60,70,80,90,100,110,120,130,140,150];
+      var yValues = [7,8,8,9,9,9,10,11,14,14,15];
+      new Chart("myChart",{
+        type: "line",
+        data:{
+          labels: xValues,
+          datasets: [{
+            backgroundColor: "#eb4949",
+            borderColor: "#9e3131",
+            data: yValues
+          }]
+        },
+        options:{
+          maintainAspectRatio: false,
+        }
+      });
       setInterval(function calcMoney(){
         var today= new Date();
         var hours = today.getHours() - document.getElementById("hourStarted").value;

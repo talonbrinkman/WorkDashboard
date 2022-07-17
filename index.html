@@ -33,6 +33,17 @@
           <input class="slider" id="decimalPlaces" type="range" value="3" min="0" max="20"></input>
         </div>
       </div>
+      <div class="PortfolioTool" id="PortfolioTool">
+        <div class="panelName">
+          <h1>Portfolio Tool</h1>
+          <i class="fa-solid fa-gear"></i>
+          <i class="fa-solid fa-trash" id="PortfolioTool" onclick="removeItem(this.id)"></i>
+          <i class="fa-solid fa-pen-to-square"></i>
+        </div>
+        <div class="chart">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
       <div class="TimeLeftTool" id="TimeLeftTool">
         <div class="panelName">
           <h1>Time Left</h1>
@@ -45,17 +56,6 @@
         <div class="inputs">
           <input class="slider" id="endHour" type="range" value="16" min="1" max="24"></input>
           <input class="slider" id="endMinutes" type="range" value="0" min="0" max="59"></input>
-        </div>
-      </div>
-      <div class="PortfolioTool" id="PortfolioTool">
-        <div class="panelName">
-          <h1>PortfolioTool</h1>
-          <i class="fa-solid fa-gear"></i>
-          <i class="fa-solid fa-trash" id="PortfolioTool" onclick="removeItem(this.id)"></i>
-          <i class="fa-solid fa-pen-to-square"></i>
-        </div>
-        <div class="chart">
-          <canvas id="myChart"></canvas>
         </div>
       </div>
       <div class="ToDoListTool" id="ToDoListTool">
@@ -74,15 +74,15 @@
       </div>
     </div>
     <script>
-      var xValues = [50,60,70,80,90,100,110,120,130,140,150];
-      var yValues = [7,8,8,9,9,9,10,11,14,14,15];
+      var xValues = ["FEB","MAR","APR","MAY","JUN","JUL"];
+      var yValues = [131.45,264.37,318.21,267.12,563.72,971.27];
       new Chart("myChart",{
         type: "line",
         data:{
           labels: xValues,
           datasets: [{
-            backgroundColor: "#eb4949",
-            borderColor: "#9e3131",
+            backgroundColor: "rgba(235, 73, 73,0.2)",
+            borderColor: "#eb4949",
             data: yValues
           }]
         },
